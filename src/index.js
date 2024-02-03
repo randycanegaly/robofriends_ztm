@@ -5,12 +5,15 @@ import './index.css';
 import App from './containers/App';
 import 'tachyons';
 import { Provider, connect } from 'react-redux';
-import { createStore } from 'redux';
-import { searchRobots } from './reducers';
-// import registerServiceWorker from './registerServiceWorker';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { searchRobots, requestRobots } from './reducers';
+import { createLogger } from 'redux-logger'
+import registerServiceWorker from './registerServiceWorker';
+import { thunk } from 'redux-thunk';
 
-const store = createStore(searchRobots);
-
+const logger = createLogger();
+const rootReducer = combineReducers({ searchRobots, requestRobots });
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +22,4 @@ root.render(
     </Provider>
 );
 
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+registerServiceWorker();
