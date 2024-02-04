@@ -1,3 +1,6 @@
+This is PRC's edits to the ZTM files from the Redux modules of the
+Junior to Senior Developer course.
+
 # robofriends
 Tutorial for React
 To run the project:
@@ -6,4 +9,4 @@ To run the project:
 2. Run `npm install`
 3. Run `npm start`
 
-*visist https://zerotomastery.io/ for more*
+*visit https://zerotomastery.io/ for more*
